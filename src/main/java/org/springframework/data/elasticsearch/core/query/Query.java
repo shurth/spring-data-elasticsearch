@@ -147,4 +147,12 @@ public interface Query {
 	 * @return
 	 */
 	SearchType getSearchType();
+	
+	/**
+	 * The field to collapse on
+	 * 
+	 * @return
+	 */
+	String getCollapseField();
+	
 }

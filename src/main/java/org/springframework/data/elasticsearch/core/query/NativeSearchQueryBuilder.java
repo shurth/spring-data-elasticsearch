@@ -54,6 +54,7 @@ public class NativeSearchQueryBuilder {
 	private Collection<String> ids;
 	private String route;
 	private SearchType searchType;
+	private String collapseField;
 
 	public NativeSearchQueryBuilder withQuery(QueryBuilder queryBuilder) {
 		this.queryBuilder = queryBuilder;
@@ -139,6 +140,11 @@ public class NativeSearchQueryBuilder {
 		this.searchType = searchType;
 		return this;
 	}
+	
+	public NativeSearchQueryBuilder withCollapseField(String collapseField) {
+		this.collapseField = collapseField;
+		return this;
+	}
 
 	public NativeSearchQuery build() {
 		NativeSearchQuery nativeSearchQuery = new NativeSearchQuery(queryBuilder, filterBuilder, sortBuilders, highlightFields);
@@ -190,6 +196,10 @@ public class NativeSearchQueryBuilder {
 
 		if (searchType != null) {
 			nativeSearchQuery.setSearchType(searchType);
+		}
+		
+		if (collapseField != null) {
+			nativeSearchQuery.setCollapseField(collapseField);
 		}
 
 		return nativeSearchQuery;

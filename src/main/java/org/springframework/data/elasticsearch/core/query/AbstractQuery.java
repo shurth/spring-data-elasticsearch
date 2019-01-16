@@ -43,6 +43,7 @@ abstract class AbstractQuery implements Query {
 	protected Collection<String> ids;
 	protected String route;
 	protected SearchType searchType = SearchType.DFS_QUERY_THEN_FETCH;
+	protected String collapseField;
 
 	@Override
 	public Sort getSort() {
@@ -149,4 +150,13 @@ abstract class AbstractQuery implements Query {
 	public SearchType getSearchType() {
 		return searchType;
 	}
+	
+	public void setCollapseField(String collapseField) {
+		this.collapseField = collapseField;
+	}
+
+	public String getCollapseField() {
+		return collapseField;
+	}
+	
 }
