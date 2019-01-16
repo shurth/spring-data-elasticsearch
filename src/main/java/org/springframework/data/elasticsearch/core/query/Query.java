@@ -61,6 +61,19 @@ public interface Query {
 	 * @return null if not set
 	 */
 	Sort getSort();
+	
+	/**
+	 * Add field to collapse on
+	 *
+	 * @param field
+	 * @return
+	 */
+	<T extends Query> T addCollapseOn(String field);
+
+	/**
+	 * @return null if not set
+	 */
+	String getCollapseOn();
 
 	/**
 	 * Get Indices to be searched

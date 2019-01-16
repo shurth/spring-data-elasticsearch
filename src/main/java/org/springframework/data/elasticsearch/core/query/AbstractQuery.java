@@ -35,6 +35,7 @@ abstract class AbstractQuery implements Query {
 
 	protected Pageable pageable = DEFAULT_PAGE;
 	protected Sort sort;
+	protected String collapseOn;
 	protected List<String> indices = new ArrayList<>();
 	protected List<String> types = new ArrayList<>();
 	protected List<String> fields = new ArrayList<>();
@@ -47,6 +48,11 @@ abstract class AbstractQuery implements Query {
 	@Override
 	public Sort getSort() {
 		return this.sort;
+	}
+	
+	@Override
+	public String getCollapseOn() {
+		return this.collapseOn;
 	}
 
 	@Override
@@ -118,6 +124,11 @@ abstract class AbstractQuery implements Query {
 		return (T) this;
 	}
 
+	public final <T extends Query> T addCollapseOn(String collapseOn) {
+		this.collapseOn = collapseOn;
+		return (T) this;
+	}
+	
 	public float getMinScore() {
 		return minScore;
 	}
